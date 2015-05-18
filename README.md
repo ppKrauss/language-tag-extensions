@@ -12,7 +12,7 @@ The OKFN's [Data Packaged Core Datasets](https://github.com/datasets) offers
 
 The URL of *IETF language tags*,  [www.iana.org/assignments/language-tag-extensions-registry](http://www.iana.org/assignments/language-tag-extensions-registry/language-tag-extensions-registry) is the official resource. Since 2010-09-02 IANA is delegating to Unicode Consortium the authority over its language codes. The zip file cited at http://www.unicode.org/Public/cldr/latest/core.zip have all updated codes and all metadata for [Language localisation](https://en.wikipedia.org/wiki/Language_localisation), suppliing all "locale" information for each language by a precise [LDML](http://www.unicode.org/reports/tr35/) (Unicode Technical Standard #35) description.
 
-In the `/main` folder of the `core.zip` file, cada filename of "filename.xml" is a valid code in the form "lang_country".
+In the `/main` folder of the `core.zip` file, each filename of "filename.xml" is a valid code in the form "lang_country".
 
 ## Preparation
 
