@@ -1,6 +1,7 @@
 <?php
 /**
- * Extract all lang codes and basic metadata of 
+ * Extract all lang codes and basic metadata of dir.
+ * Folder $dir obtained from http://www.unicode.org/Public/cldr/latest/core.zip
  * @author https://github.com/ppKrauss
  */
 
@@ -9,9 +10,8 @@ $dir= 'main';
 $dom = new DOMDocument;
 $n=0;
 print "lang,langType,territory,revGenDate,defs,file";
-foreach(scandir($dir) as $file) if (strpos($file,'.xml')) {
-    $lang = preg_replace('/\.xml$/','',$file);
-    $lang = strtr($lang,'_','-');
+foreach(scandir($dir) as $file) if (preg_match('/^(.+)\.xml$/',$file,$m)) {
+    $lang = strtr($m[1],'_','-');
     $dom->load("$dir/$file");
     $xp = new DOMXpath($dom);
     $revGenDate = $xp->evaluate("string(/ldml/identity/generation/@date)");
@@ -22,5 +22,5 @@ foreach(scandir($dir) as $file) if (strpos($file,'.xml')) {
     print "\n$lang,$langType,$territory,$revGenDate,$defs,$file";
     $n++;
 }
-//print "\n--- end $n lang codes \n";
+//print "\n--- END: $n lang codes ---\n";
 ?>
